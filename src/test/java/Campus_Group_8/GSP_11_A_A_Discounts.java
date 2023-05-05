@@ -51,7 +51,7 @@ public class GSP_11_A_A_Discounts {
     public void createDiscounts() {
 
         Map<String, Object> discounts = new HashMap<>();
-        description = faker.funnyName() + faker.number().digits(5);
+        description = faker.funnyName().name() + faker.number().digits(5);
         discounts.put("description", description);
         discounts.put("code", faker.code().imei() + faker.number().digits(5));
         discounts.put("priority", faker.number().digits(7));
@@ -71,7 +71,7 @@ public class GSP_11_A_A_Discounts {
 
         ;
         //System.out.println("Discounts ID = " + discountsID);
-        //  System.out.println("description = " + description);
+        System.out.println("description = " + description);
 
     }
 
