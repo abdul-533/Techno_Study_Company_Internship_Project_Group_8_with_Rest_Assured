@@ -16,7 +16,7 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.equalTo;
 
-public class AMU_Attestations {
+public class GSP_139_C_C_Attestations {
     Faker faker = new Faker();
     String attestationName;
     String attestationID;

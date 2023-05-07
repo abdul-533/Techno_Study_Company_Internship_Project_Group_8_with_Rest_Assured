@@ -14,7 +14,7 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.equalTo;
 
-public class GSP04attachments {
+public class GSP_140_T_Y_Document {
 
     Faker faker=new Faker();
     String documentTypesID;

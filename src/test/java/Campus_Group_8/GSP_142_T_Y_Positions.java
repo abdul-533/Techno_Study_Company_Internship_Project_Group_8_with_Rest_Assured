@@ -13,7 +13,7 @@ import java.util.Map;
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
 
-public class GSP06Positions {
+public class GSP_142_T_Y_Positions {
 
     Faker faker=new Faker();
     String positionsID;

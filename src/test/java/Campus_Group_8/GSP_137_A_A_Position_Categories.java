@@ -11,13 +11,15 @@ import org.testng.annotations.Test;
 import java.util.HashMap;
 import java.util.Map;
 
-import static io.restassured.RestAssured.*;
-import static org.hamcrest.Matchers.*;
+import static io.restassured.RestAssured.baseURI;
+import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.containsString;
+import static org.hamcrest.Matchers.equalTo;
 
-public class GSP_11_A_A_Discounts {
+public class GSP_137_A_A_Position_Categories {
     RequestSpecification recSpec;
-    String discountsID;
-    String description;
+    String positionCatID;
+    String positionCatName;
     Faker faker = new Faker();
 
     @BeforeClass
@@ -44,26 +46,22 @@ public class GSP_11_A_A_Discounts {
                 .setContentType(ContentType.JSON)
                 .addCookies(cookies)
                 .build();
-
     }
 
     @Test
-    public void createDiscounts() {
+    public void createPositionCategories() {
 
-        Map<String, Object> discounts = new HashMap<>();
-        description = faker.funnyName().name() + faker.number().digits(5);
-        discounts.put("description", description);
-        discounts.put("code", faker.code().imei() + faker.number().digits(5));
-        discounts.put("priority", faker.number().digits(7));
-        discounts.put("active", "true");
+        Map<String, String> positionCat = new HashMap<>();
+        positionCatName = faker.name().fullName() + faker.number().digits(3);
+        positionCat.put("name", positionCatName);
 
-        discountsID =
+        positionCatID =
                 given()
                         .spec(recSpec)
-                        .body(discounts)
+                        .body(positionCat)
 
                         .when()
-                        .post("/school-service/api/discounts")
+                        .post("/school-service/api/position-category")
 
                         .then()
                         .statusCode(201)
@@ -71,25 +69,21 @@ public class GSP_11_A_A_Discounts {
 
         ;
         //System.out.println("Discounts ID = " + discountsID);
-        System.out.println("description = " + description);
+        System.out.println("name = " + positionCatName);
 
     }
 
-    @Test(dependsOnMethods = "createDiscounts")
-    public void createDiscountsNegative() {
-        Map<String, Object> discounts = new HashMap<>();
-        discounts.put("description", description);
-        discounts.put("code", faker.code().imei() + faker.number().digits(5));
-        discounts.put("priority", faker.number().digits(7));
-        discounts.put("active", "true");
-
+    @Test(dependsOnMethods = "createPositionCategories")
+    public void createPositionCategoriesNegative() {
+        Map<String, String> positionCat = new HashMap<>();
+        positionCat.put("name", positionCatName);
 
         given()
                 .spec(recSpec)
-                .body(discounts)
+                .body(positionCat)
 
                 .when()
-                .post("/school-service/api/discounts")
+                .post("/school-service/api/position-category")
 
                 .then()
                 .log().body()
@@ -99,58 +93,54 @@ public class GSP_11_A_A_Discounts {
 
     }
 
-    @Test(dependsOnMethods = "createDiscountsNegative")
-    public void updateDiscounts() {
-        Map<String, Object> discounts = new HashMap<>();
-        description = "Bokser_area" + faker.funnyName() + faker.number().digits(2);
-        discounts.put("id", discountsID);
-        discounts.put("description", description);
-        discounts.put("code", faker.code().imei() + faker.number().digits(5));
-        discounts.put("priority", faker.number().digits(7));
-        discounts.put("active", "true");
-
+    @Test(dependsOnMethods = "createPositionCategoriesNegative")
+    public void updatePositionCategories() {
+        Map<String, String> positionCat = new HashMap<>();
+        positionCatName = faker.name().fullName() + faker.number().digits(3);
+        positionCat.put("name", positionCatName);
+        positionCat.put("id", positionCatID);
 
         given()
                 .spec(recSpec)
-                .body(discounts)
+                .body(positionCat)
 
                 .when()
-                .put("/school-service/api/discounts")
+                .put("/school-service/api/position-category")
 
                 .then()
                 .log().body()
                 .statusCode(200)
-                .body("description", equalTo(description))
+                .body("name", equalTo(positionCatName))
         ;
 
     }
 
-    @Test(dependsOnMethods = "updateDiscounts")
-    public void deleteDiscounts() {
+    @Test(dependsOnMethods = "updatePositionCategories")
+    public void deletePositionCategories() {
 
         given()
                 .spec(recSpec)
-                .pathParam("discountsID", discountsID)
+                .pathParam("positionCatID", positionCatID)
                 .log().uri()
 
                 .when()
-                .delete("/school-service/api/discounts/{discountsID}")
+                .delete("/school-service/api/position-category/{positionCatID}")
 
                 .then()
                 .log().body()
-                .statusCode(200)
+                .statusCode(204)
         ;
     }
 
-    @Test(dependsOnMethods = "deleteDiscounts")
-    public void deleteDiscountsNegative() {
+    @Test(dependsOnMethods = "deletePositionCategories")
+    public void deletePositionCategoriesNegative() {
         given()
                 .spec(recSpec)
-                .pathParam("discountsID", discountsID)
+                .pathParam("positionCatID", positionCatID)
                 .log().uri()
 
                 .when()
-                .delete("/school-service/api/discounts/{discountsID}")
+                .delete("/school-service/api/position-category/{positionCatID}")
 
                 .then()
                 .log().body()

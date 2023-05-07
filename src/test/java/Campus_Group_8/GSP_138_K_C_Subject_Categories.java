@@ -16,7 +16,7 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.equalTo;
 
-public class K_C_SubjectCategories {
+public class GSP_138_K_C_Subject_Categories {
 
     RequestSpecification reqSpec;
     Faker faker=new Faker();

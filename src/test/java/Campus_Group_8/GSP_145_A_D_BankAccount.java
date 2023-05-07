@@ -16,7 +16,7 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.equalTo;
 
-public class Alperen_BankAccountTest {
+public class GSP_145_A_D_BankAccount {
     Faker faker = new Faker();
     String BankAccountID;
     String IBAN = faker.number().digits(10);

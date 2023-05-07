@@ -15,7 +15,7 @@ import static io.restassured.RestAssured.baseURI;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
-public class Alperen_NationalitiesTest {
+public class GSP_148_A_D_Nationalities {
     Faker faker = new Faker();
     String NationalityID;
     String NationalityName;

@@ -16,7 +16,7 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.equalTo;
 
-public class TY_Departments {
+public class GSP_144_H_C_Departments {
     Faker faker = new Faker();
     String departmentName;
     String schoolID = "6390f3207a3bcb6a7ac977f9";
