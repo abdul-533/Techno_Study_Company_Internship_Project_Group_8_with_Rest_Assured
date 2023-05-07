@@ -3,7 +3,7 @@
 <suite name="All Test Suite">
     <test name="Main Test">
         <classes>
-            <class name="Campus_Group_8.All_Test_Runners">  </class>
+            <class name="Campus_Group_8.GSP_147_A_A_Discounts">  </class>
         </classes>
     </test>
 </suite>
