@@ -1,0 +1,3404 @@
+{
+	"info": {
+		"_postman_id": "2d1d2972-cd4c-4724-a082-d9bb79202228",
+		"name": "Group_8 All Tests Run",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26955642",
+		"_collection_link": "https://www.postman.com/cloudy-zodiac-928399/workspace/techno-study-group-8/collection/26955642-2d1d2972-cd4c-4724-a082-d9bb79202228?action=share&creator=26955642&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "GSP-02_A.D_Position Categories",
+			"item": [
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "a3595aa2d2f40a1af2fdc5aff7d7b5e5f6564955bcebc5c21ab3aba805dff801",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"turkeyts\",\r\n    \"password\": \"TechnoStudy123\",\r\n    \"rememberMe\": \"true\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/auth/login",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Human Resources",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"pm.collectionVariables.set(\"HRID\", pm.response.json().id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"id\": null,\r\n\"name\": \"TechnoStudyGR8\",\r\n\"translateName\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/school-service/api/position-category",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"school-service",
+								"api",
+								"position-category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Human Resources Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"id\": null,\r\n\"name\": \"TechnoStudyGR8\",\r\n\"translateName\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/school-service/api/position-category",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"school-service",
+								"api",
+								"position-category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Human Resources",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"{{HRID}}\",\r\n    \"name\": \"{{$randomFullName}}\",\r\n    \"translateName\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/school-service/api/position-category",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"school-service",
+								"api",
+								"position-category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Human Resources",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {\r",
+									"    pm.response.to.have.status(204);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/school-service/api/position-category/{{HRID}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"school-service",
+								"api",
+								"position-category",
+								"{{HRID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Human Resources Negative",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/school-service/api/position-category/{{HRID}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"school-service",
+								"api",
+								"position-category",
+								"{{HRID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "GSP-03_A.M.U_Attestations",
+			"item": [
+				{
+					"name": "Login Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"turkeyts\",\r\n    \"password\": \"TechnoStudy123\",\r\n    \"rememberMe\": \"true\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/auth/login",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Attestations Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"var onayadi= pm.response.json().name;\r",
+									"pm.collectionVariables.set(\"attestationName\", onayadi);\r",
+									"pm.collectionVariables.set(\"attestationID\", pm.response.json().id);\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":null,\r\n    \"name\":\"{{$randomFullName}}\",\r\n    \"translateName\":[]\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/school-service/api/attestation",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"school-service",
+								"api",
+								"attestation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Attestations Negative Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":null,\r\n    \"name\":\"{{attestationName}}\",\r\n    \"translateName\":[]\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/school-service/api/attestation",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"school-service",
+								"api",
+								"attestation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Attestations Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":\"{{attestationID}}\",\r\n    \"name\":\"{{$randomFirstName}}\",\r\n    \"translateName\":[]\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/school-service/api/attestation",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"school-service",
+								"api",
+								"attestation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Attestations Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {\r",
+									"    pm.response.to.have.status(204);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/school-service/api/attestation/{{attestationID}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"school-service",
+								"api",
+								"attestation",
+								"{{attestationID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Attestations Negative Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/school-service/api/attestation/{{attestationID}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"school-service",
+								"api",
+								"attestation",
+								"{{attestationID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "GSP-04_Ç.Ç_Document Types",
+			"item": [
+				{
+					"name": "Login Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"turkeyts\",\r\n    \"password\": \"TechnoStudy123\",\r\n    \"rememberMe\": \"true\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/auth/login",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Document Types Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"var documentTypesN = pm.response.json.name;\r",
+									"pm.collectionVariables.set(\"documentTypesName\",documentTypesN);\r",
+									"\r",
+									"pm.collectionVariables.set(\"documentTypesID\",pm.response.json().id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": null,\r\n    \"name\": \"cc\",\r\n    \"description\": \"test\",\r\n    \"attachmentStages\": [\r\n        \"EMPLOYMENT\"\r\n    ],\r\n    \"active\": true,\r\n    \"required\": true,\r\n    \"useCamera\": false,\r\n    \"translateName\": [],\r\n    \"schoolId\": \"6390f3207a3bcb6a7ac977f9\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/school-service/api/attachments/create",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"school-service",
+								"api",
+								"attachments",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Document Types Negative Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": null,\r\n    \"name\": \"cc\",\r\n    \"description\": \"test\",\r\n    \"attachmentStages\": [\r\n        \"EMPLOYMENT\"\r\n    ],\r\n    \"active\": true,\r\n    \"required\": true,\r\n    \"useCamera\": false,\r\n    \"translateName\": [],\r\n    \"schoolId\": \"6390f3207a3bcb6a7ac977f9\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/school-service/api/attachments/create",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"school-service",
+								"api",
+								"attachments",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Document Types Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"{{documentTypesID}}\",\r\n    \"name\": \"cc8\",\r\n    \"description\": \"test\",\r\n    \"attachmentStages\": [\r\n        \"EMPLOYMENT\"\r\n    ],\r\n    \"active\": true,\r\n    \"required\": true,\r\n    \"useCamera\": false,\r\n    \"translateName\": [],\r\n    \"schoolId\": \"6390f3207a3bcb6a7ac977f9\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/school-service/api/attachments",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"school-service",
+								"api",
+								"attachments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Document Types Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/school-service/api/attachments/{{documentTypesID}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"school-service",
+								"api",
+								"attachments",
+								"{{documentTypesID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Document Types Negative Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/school-service/api/attachments/create/{{documentTypesID}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"school-service",
+								"api",
+								"attachments",
+								"create",
+								"{{documentTypesID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "GSP-05_D.Y_Fields(A.A)",
+			"item": [
+				{
+					"name": "New Request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"username\":\"turkeyts\",\r\n\"password\":\"TechnoStudy123\",\r\n\"rememberMe\":\"true\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/auth/login",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Fields",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"pm.collectionVariables.set(\"FName\", pm.response.json().name);\r",
+									"pm.collectionVariables.set(\"FID\",pm.response.json().id)"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"console.log(\"BEFORE request\");"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":null,\r\n\"name\":\"Group_8888\",\r\n\"translateName\":[],\r\n\"code\":\"888\",\r\n\"type\":\"STRING\",\r\n\"children\":[],\r\n\"systemField\":false,\r\n\"systemFieldName\":null,\r\n\"schoolId\":\"6390f3207a3bcb6a7ac977f9\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/school-service/api/entity-field",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"school-service",
+								"api",
+								"entity-field"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Fields Negative",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"id\":null,\r\n\"name\":\"{{FName}}\",\r\n\"translateName\":[],\r\n\"code\":\"9999\",\r\n\"type\":\"STRING\",\r\n\"children\":[],\r\n\"systemField\":false,\r\n\"systemFieldName\":null,\r\n\"schoolId\":\"6390f3207a3bcb6a7ac977f9\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/school-service/api/entity-field",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"school-service",
+								"api",
+								"entity-field"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Fields",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "b2c0b5cd596c4bdea1d027947434ac296903ce4e5a17155fe604fc2448cb1270",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n \"id\":\"{{FID}}\",\r\n\"name\":\"Group_9999\",\r\n\"translateName\":[],\r\n\"code\":\"9999\",\r\n\"type\":\"STRING\",\r\n\"children\":[],\r\n\"systemField\":false,\r\n\"systemFieldName\":null,\r\n\"schoolId\":\"6390f3207a3bcb6a7ac977f9\"\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/school-service/api/entity-field",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"school-service",
+								"api",
+								"entity-field"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Fields",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {\r",
+									"    pm.response.to.have.status(204);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "b2c0b5cd596c4bdea1d027947434ac296903ce4e5a17155fe604fc2448cb1270",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/school-service/api/entity-field/{{FID}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"school-service",
+								"api",
+								"entity-field",
+								"{{FID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Fields Negative",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "b2c0b5cd596c4bdea1d027947434ac296903ce4e5a17155fe604fc2448cb1270",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/school-service/api/entity-field/{{FID}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"school-service",
+								"api",
+								"entity-field",
+								"{{FID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "GSP-06_H.Ç_Positions",
+			"item": [
+				{
+					"name": "Login Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"turkeyts\",\r\n    \"password\": \"TechnoStudy123\",\r\n    \"rememberMe\": \"true\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/auth/login",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Positions Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"var positionsN = pm.response.json.name;\r",
+									"pm.collectionVariables.set(\"positionsName\",positionsN);\r",
+									"\r",
+									"pm.collectionVariables.set(\"positionsID\",pm.response.json().id);\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": null,\r\n    \"name\": \"hhh\",\r\n    \"shortName\": \"h\",\r\n    \"translateName\": [],\r\n    \"tenantId\": \"6390ef53f697997914ec20c2\",\r\n    \"active\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/school-service/api/employee-position",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"school-service",
+								"api",
+								"employee-position"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Positions Negative Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": null,\r\n    \"name\": \"hhh\",\r\n    \"shortName\": \"h\",\r\n    \"translateName\": [],\r\n    \"tenantId\": \"6390ef53f697997914ec20c2\",\r\n    \"active\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/school-service/api/employee-position",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"school-service",
+								"api",
+								"employee-position"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Positions Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"{{positionsID}}\",\r\n    \"name\": \"hhhh\",\r\n    \"shortName\": \"h\",\r\n    \"translateName\": [],\r\n    \"tenantId\": \"6390ef53f697997914ec20c2\",\r\n    \"active\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/school-service/api/employee-position",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"school-service",
+								"api",
+								"employee-position"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Positions Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {\r",
+									"    pm.response.to.have.status(204);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "25ff6face4eb55e56fdde4f678f513244e596e66dff0ba47f315bae97c32c348",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/school-service/api/employee-position/{{positionsID}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"school-service",
+								"api",
+								"employee-position",
+								"{{positionsID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Positions Negative Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "25ff6face4eb55e56fdde4f678f513244e596e66dff0ba47f315bae97c32c348",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/school-service/api/employee-position/{{positionsID}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"school-service",
+								"api",
+								"employee-position",
+								"{{positionsID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "GSP-07_H.C.D_Subject Categories",
+			"item": [
+				{
+					"name": "Login Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"turkeyts\",\r\n    \"password\": \"TechnoStudy123\",\r\n    \"rememberMe\": \"true\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/auth/login",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Subject Category Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"var category = pm.response.json().name;\r",
+									"pm.collectionVariables.set(\"CategoryName\".category);\r",
+									"\r",
+									"pm.collectionVariables.set(\"categoryID\", pm.response.json().id);\r",
+									"\r",
+									"console.log(\"AFTER Request\");\r",
+									"\r",
+									"\r",
+									"var jsonData = pm.response.json(); // dönen data\r",
+									"var id= jsonData.id;\r",
+									"\r",
+									"console.log(id); // sysout\r",
+									"console.log(jsonData.email);\r",
+									"console.log(pm.response.json().email);\r",
+									"\r",
+									"pm.collectionVariables.set(\"userID\", id); \r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n     \"id\": null,\r\n\"name\": \"{{$randomUserName}}\",\r\n\"code\": \"{{$randomCountryCode}}\",\r\n\"translateName\":[],\r\n\"active\":true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://test.mersys.io/school-service/api/subject-categories",
+							"protocol": "https",
+							"host": [
+								"test",
+								"mersys",
+								"io"
+							],
+							"path": [
+								"school-service",
+								"api",
+								"subject-categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Subject Category Negativ Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": null,\r\n  \"name\": \"{{CategoryName}}\",\r\n  \"code\": \"00\",\r\n  \"translateName\": [],\r\n  \"hasState\": false\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/school-service/api/subject-categories",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"school-service",
+								"api",
+								"subject-categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Subject Category Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n\r\n{\"id\":\"644cd72871f486304a998291\",\"name\":\"GRUP8\",\"translateName\":[],\"code\":\"HT\",\"active\":true}\r\n\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://test.mersys.io/school-service/api/subject-categories",
+							"protocol": "https",
+							"host": [
+								"test",
+								"mersys",
+								"io"
+							],
+							"path": [
+								"school-service",
+								"api",
+								"subject-categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Subject Category Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\"id\":{{$categoryID}},\r\n\"name\": \"{{$countryName}}\",\r\n\"code\": \"1111111\",\r\n\"translateName\":[],\r\n\"active\":true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/school-service/api/subject-categories/{{userID}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"school-service",
+								"api",
+								"subject-categories",
+								"{{userID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Subject Category Negative Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\"id\":{{$countryID}},\r\n\"name\": \"{{$countryName}}\",\r\n\"code\": \"1111111\",\r\n\"translateName\":[],\r\n\"active\":true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/school-service/api/subject-categories/{{categoryID}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"school-service",
+								"api",
+								"subject-categories",
+								"{{categoryID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "GSP-08_T.K._School Locations",
+			"item": [
+				{
+					"name": "Login Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"turkeyts\",\r\n    \"password\": \"TechnoStudy123\",\r\n    \"rememberMe\": \"true\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/auth/login",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Locations Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"pm.collectionVariables.set(\"locationsID\",pm.response.json().id);\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": null,\r\n    \"name\": \"TechnoStudy\",\r\n    \"shortName\": \"Techno\",\r\n    \"active\": true,\r\n    \"capacity\": 150,\r\n    \"type\": \"CLASS\",\r\n    \"school\": \"6390f3207a3bcb6a7ac977f9\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/school-service/api/location",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"school-service",
+								"api",
+								"location"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Locations Negative Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": null,\r\n    \"name\": \"TechnoStudy\",\r\n    \"shortName\": \"Techno\",\r\n    \"active\": true,\r\n    \"capacity\": 150,\r\n    \"type\": \"CLASS\",\r\n    \"school\": \"6390f3207a3bcb6a7ac977f9\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/school-service/api/location",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"school-service",
+								"api",
+								"location"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Locations Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"{{locationsID}}\",\r\n    \"name\": \"NewTechnoStudy\",\r\n    \"shortName\": \"Techno\",\r\n    \"active\": true,\r\n    \"capacity\": 150,\r\n    \"type\": \"CLASS\",\r\n    \"school\": \"6390f3207a3bcb6a7ac977f9\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/school-service/api/location",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"school-service",
+								"api",
+								"location"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Locations Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/school-service/api/location/{{locationsID}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"school-service",
+								"api",
+								"location",
+								"{{locationsID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Locations Negative Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/school-service/api/location/{{locationsID}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"school-service",
+								"api",
+								"location",
+								"{{locationsID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "GSP-09_T.Y_Departments",
+			"item": [
+				{
+					"name": "Login Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"turkeyts\",\r\n    \"password\": \"TechnoStudy123\",\r\n    \"rememberMe\": \"true\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/auth/login",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Department Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"var okulAdi= pm.response.json().name;\r",
+									"pm.collectionVariables.set(\"departmentName\", okulAdi);\r",
+									"pm.collectionVariables.set(\"departmentID\", pm.response.json().id);\r",
+									"pm.collectionVariables.set(\"departmentCode\", pm.response.json().code);\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "7ecf4eeb2e7dd6faed462818b8302b56d6adef10553042b4db20f36629ead7b3",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": null,\r\n    \"name\": \"{{$randomFullName}}\",\r\n    \"code\": \"{{$randomInt}}\",\r\n    \"active\": true,\r\n    \"school\": \"6390f3207a3bcb6a7ac977f9\",\r\n    \"sections\": [],\r\n    \"constants\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/school-service/api/department",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"school-service",
+								"api",
+								"department"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Department Negative Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": null,\r\n    \"name\": \"{{departmentName}}\",\r\n    \"code\": \"{{departmentCode}}\",\r\n    \"active\": true,\r\n    \"school\": \"6390f3207a3bcb6a7ac977f9\",\r\n    \"sections\": [],\r\n    \"constants\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/school-service/api/department",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"school-service",
+								"api",
+								"department"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Department Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"{{departmentID}}\",\r\n    \"name\": \"{{$randomCity}}\",\r\n    \"code\": \"{{$randomInt}}\",\r\n    \"active\": true,\r\n    \"school\": \"6390f3207a3bcb6a7ac977f9\",\r\n    \"sections\": [],\r\n    \"constants\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/school-service/api/department",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"school-service",
+								"api",
+								"department"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Country Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(204);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/school-service/api/department/{{departmentID}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"school-service",
+								"api",
+								"department",
+								"{{departmentID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Country Negative Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/school-service/api/department/{{departmentID}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"school-service",
+								"api",
+								"department",
+								"{{departmentID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "GSP-10_A.A_Bank Accounts",
+			"item": [
+				{
+					"name": "New Request Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "47b04c4268e4a9513e1926b64d3137eeea4338eea6f9e44b850cf5b862192324",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"username\":\"turkeyts\",\r\n\"password\":\"TechnoStudy123\",\r\n\"rememberMe\":\"true\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/auth/login",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Bank Account Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"pm.collectionVariables.set(\"bankName\", pm.response.json().name);\r",
+									"pm.collectionVariables.set(\"bankIBAN\",pm.response.json().iban);\r",
+									"pm.collectionVariables.set(\"bankID\",pm.response.json().id)"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"console.log(\"BEFORE request\");"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"id\":null,\r\n\"name\":\"Group_8\",\r\n\"iban\":\"8888 8888 8888 8888\",\r\n\"integrationCode\":\"008\",\r\n\"currency\":\"USD\",\r\n\"active\":true,\r\n\"schoolId\":\"6390f3207a3bcb6a7ac977f9\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/school-service/api/bank-accounts",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"school-service",
+								"api",
+								"bank-accounts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Bank Account Negative Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"id\":null,\r\n\"name\":\"{{bankName}}\",\r\n\"iban\":\"{{bankIBAN}}\",\r\n\"integrationCode\":\"008\",\r\n\"currency\":\"USD\",\r\n\"active\":true,\r\n\"schoolId\":\"6390f3207a3bcb6a7ac977f9\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/school-service/api/bank-accounts",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"school-service",
+								"api",
+								"bank-accounts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Bank Account Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "b2c0b5cd596c4bdea1d027947434ac296903ce4e5a17155fe604fc2448cb1270",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"active\": true,\r\n\"currency\": \"USD\",\r\n\"iban\": \"9999 9999 9999 9999\",\r\n\"id\": \"{{bankID}}\",\r\n\"integrationCode\": \"009\",\r\n\"name\": \"Group_008\",\r\n\"schoolId\": \"6390f3207a3bcb6a7ac977f9\"\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/school-service/api/bank-accounts",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"school-service",
+								"api",
+								"bank-accounts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Bank Account Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "b2c0b5cd596c4bdea1d027947434ac296903ce4e5a17155fe604fc2448cb1270",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/school-service/api/bank-accounts/{{bankID}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"school-service",
+								"api",
+								"bank-accounts",
+								"{{bankID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Bank Account Negative Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "b2c0b5cd596c4bdea1d027947434ac296903ce4e5a17155fe604fc2448cb1270",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/school-service/api/bank-accounts/{{bankID}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"school-service",
+								"api",
+								"bank-accounts",
+								"{{bankID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "GSP-11_K.C_Grade Levels",
+			"item": [
+				{
+					"name": "Login Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"turkeyts\",\n    \"password\": \"TechnoStudy123\",\n    \"rememberMe\": \"true\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/auth/login",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create GradeLevels Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"",
+									" var fullName = pm.response.json().name",
+									"pm.collectionVariables.set(\"fullName\" , fullName);",
+									"",
+									"pm.collectionVariables.set(\"fullNameID\" , pm.response.json().id);",
+									"",
+									"var shortName = pm.response.json.name",
+									"pm.collectionVariables.set(\"shortName\" , shortName)",
+									"",
+									"pm.collectionVariables.set(\"shortName\" , pm.response.json().id);",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": null,\n  \"name\": \"{{$randomFullName}}\",\n  \"shortName\": \"{{$randomUserName}}\",\n  \"nextGradeLevel\": null,\n  \"order\": \"{{$randomInt}}\",\n  \"translateName\": [],\n  \"translateShortName\": [],\n  \"active\": true,\n  \"schoolIds\": [\n    \"6390f3207a3bcb6a7ac977f9\"\n  ],\n  \"showToAllSchools\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/school-service/api/grade-levels",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"school-service",
+								"api",
+								"grade-levels"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create GradeLevels Negative Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": null,\n  \"name\": \"{{fullName}}\",\n  \"shortName\": \"{{$randomUserName}}\",\n  \"nextGradeLevel\": null,\n  \"order\": \"{{$randomInt}}\",\n  \"translateName\": [],\n  \"translateShortName\": [],\n  \"active\": true,\n  \"schoolIds\": [\n    \"6390f3207a3bcb6a7ac977f9\"\n  ],\n  \"showToAllSchools\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/school-service/api/grade-levels",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"school-service",
+								"api",
+								"grade-levels"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update GradeLevels Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": \"{{fullNameID}}\",\n  \"name\": \"{{fullName}}\",\n  \"shortName\": \"{{shortName}}\",\n  \"nextGradeLevel\": null,\n  \"order\": \"1223123\",\n  \"translateName\": [],\n  \"translateShortName\": [],\n  \"active\": true,\n  \"schoolIds\": [\n    \"6390f3207a3bcb6a7ac977f9\"\n  ],\n  \"showToAllSchools\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/school-service/api/grade-levels",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"school-service",
+								"api",
+								"grade-levels"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete GradeLevels Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/school-service/api/grade-levels/{{fullNameID}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"school-service",
+								"api",
+								"grade-levels",
+								"{{fullNameID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete GradeLevels Negative Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": null,\n  \"name\": \"{{$randomFullName}}\",\n  \"shortName\": \"{{$randomUserName}}\",\n  \"nextGradeLevel\": null,\n  \"order\": \"{{$randomInt}}\",\n  \"translateName\": [],\n  \"translateShortName\": [],\n  \"active\": true,\n  \"schoolIds\": [\n    \"6390f3207a3bcb6a7ac977f9\"\n  ],\n  \"showToAllSchools\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/school-service/api/countries/{{fullNameID}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"school-service",
+								"api",
+								"countries",
+								"{{fullNameID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "GSP-12_A.D_Discounts",
+			"item": [
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "a3595aa2d2f40a1af2fdc5aff7d7b5e5f6564955bcebc5c21ab3aba805dff801",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"turkeyts\",\r\n    \"password\": \"TechnoStudy123\",\r\n    \"rememberMe\": \"true\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/auth/login",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Discount",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"pm.collectionVariables.set(\"DiscountID\", pm.response.json().id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": null,\r\n    \"description\": \"TechnoGR8\",\r\n    \"code\": \"Group8\",\r\n    \"active\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/school-service/api/discounts",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"school-service",
+								"api",
+								"discounts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Discount Negative",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": null,\r\n    \"description\": \"TechnoGR8\",\r\n    \"code\": \"Group8\",\r\n    \"active\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/school-service/api/discounts",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"school-service",
+								"api",
+								"discounts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Discount",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"{{DiscountID}}\",\r\n    \"description\": \"{{$randomFirstName}}\",\r\n    \"code\": \"{{$randomLastName}}\",\r\n    \"priority\": \"{{$randomInt}}\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/school-service/api/discounts",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"school-service",
+								"api",
+								"discounts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Discount",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/school-service/api/discounts/{{DiscountID}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"school-service",
+								"api",
+								"discounts",
+								"{{DiscountID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Discount Negative",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/school-service/api/discounts/{{DiscountID}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"school-service",
+								"api",
+								"discounts",
+								"{{DiscountID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "GSP-13_A.A_Nationalities",
+			"item": [
+				{
+					"name": "New Request Copy 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"username\":\"turkeyts\",\r\n\"password\":\"TechnoStudy123\",\r\n\"rememberMe\":\"true\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/auth/login",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Nationalities Copy 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"pm.collectionVariables.set(\"ntName\", pm.response.json().name);\r",
+									"pm.collectionVariables.set(\"ntID\",pm.response.json().id)"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"console.log(\"BEFORE request\");"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"id\":null,\r\n\"name\":\"Group__008\",\r\n\"translateName\":[]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/school-service/api/nationality",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"school-service",
+								"api",
+								"nationality"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Nationalities Negative Copy 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"id\":null,\r\n\"name\":\"{{ntName}}\",\r\n\"translateName\":[]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/school-service/api/nationality",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"school-service",
+								"api",
+								"nationality"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Nationalities Copy 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "b2c0b5cd596c4bdea1d027947434ac296903ce4e5a17155fe604fc2448cb1270",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"id\":\"{{ntID}}\",\r\n\"name\":\"Group__8888\",\r\n\"translateName\":[]\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/school-service/api/nationality",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"school-service",
+								"api",
+								"nationality"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Nationalities Copy 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "b2c0b5cd596c4bdea1d027947434ac296903ce4e5a17155fe604fc2448cb1270",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/school-service/api/nationality/{{ntID}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"school-service",
+								"api",
+								"nationality",
+								"{{ntID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Nationalities Negative Copy 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "b2c0b5cd596c4bdea1d027947434ac296903ce4e5a17155fe604fc2448cb1270",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/school-service/api/nationality/{{ntID}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"school-service",
+								"api",
+								"nationality",
+								"{{ntID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "ntName",
+			"value": ""
+		},
+		{
+			"key": "ntID",
+			"value": ""
+		},
+		{
+			"key": "HRID",
+			"value": ""
+		},
+		{
+			"key": "attestationName",
+			"value": ""
+		},
+		{
+			"key": "attestationID",
+			"value": ""
+		},
+		{
+			"key": "documentTypesName",
+			"value": ""
+		},
+		{
+			"key": "documentTypesID",
+			"value": ""
+		},
+		{
+			"key": "positionsName",
+			"value": ""
+		},
+		{
+			"key": "positionsID",
+			"value": ""
+		},
+		{
+			"key": "categoryID",
+			"value": ""
+		},
+		{
+			"key": "userID",
+			"value": ""
+		},
+		{
+			"key": "locationsID",
+			"value": ""
+		},
+		{
+			"key": "departmentName",
+			"value": ""
+		},
+		{
+			"key": "departmentID",
+			"value": ""
+		},
+		{
+			"key": "departmentCode",
+			"value": ""
+		},
+		{
+			"key": "bankName",
+			"value": ""
+		},
+		{
+			"key": "bankIBAN",
+			"value": ""
+		},
+		{
+			"key": "bankID",
+			"value": ""
+		},
+		{
+			"key": "fullName",
+			"value": ""
+		},
+		{
+			"key": "fullNameID",
+			"value": ""
+		},
+		{
+			"key": "shortName",
+			"value": ""
+		},
+		{
+			"key": "FName",
+			"value": ""
+		},
+		{
+			"key": "FID",
+			"value": ""
+		},
+		{
+			"value": ""
+		},
+		{
+			"key": "DiscountID",
+			"value": ""
+		},
+		{
+			"value": ""
+		}
+	]
+}
